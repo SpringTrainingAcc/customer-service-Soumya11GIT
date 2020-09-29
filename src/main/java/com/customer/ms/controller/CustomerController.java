@@ -45,10 +45,16 @@ public class CustomerController {
 			}
 		
 		
-	// URL - POST http://localhost:8080/{deleteCustomer}
-		@RequestMapping(value = "/{deleteCustomer}", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
-		public Customer deleteCustomer(@RequestBody Customer customer) {
-			return customerDAO.deleteCustomer(customer);
+	// URL - POST http://localhost:8080/deleteCustomer
+		@RequestMapping(value = "/deleteCustomer/{cusId}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+		public Customer deleteCustomer(@PathVariable("cusId") String cusId) {
+			return customerDAO.deleteCustomer(cusId);
 		}
+		
+		// URL - POST http://localhost:8080/updateCustomer
+				@RequestMapping(value = "/updateCustomer", method = RequestMethod.POST, produces = { MediaType.APPLICATION_JSON_VALUE })
+				public Customer updateCustomer(@RequestBody Customer customer) {
+					return customerDAO.updateCustomer(customer);
+				}
 
 }

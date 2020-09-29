@@ -38,8 +38,12 @@ public class CustomerDAO {
 		return cus;
 	}
 	
-	public Customer deleteCustomer(Customer cus) {
-		cusMap.put(cus.getCusId(), cus);
+	public Customer deleteCustomer(String cusId) {
+		return cusMap.remove(cusId);
+	}
+	
+	public Customer updateCustomer(Customer cus) {
+		cusMap.replace(cus.getCusId(), cus);
 		return cus;
 	}
 
