@@ -70,7 +70,7 @@ public class CustomerController {
 				
 				@RequestMapping(value ="/mongoCustomer/{cusId}" , method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
 				public CustomerM getMongoCustomers(@PathVariable("cusId") String cusId ){
-					return customerService.findbyId(cusId);                     
+					return customerService.findById(cusId);                     
 				}
 				
 				
